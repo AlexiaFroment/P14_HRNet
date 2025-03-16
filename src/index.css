@@ -1,0 +1,26 @@
+@import "antd/dist/reset.css";
+@import "tailwindcss";
+
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  color: black;
+}
+h1 {
+  @apply text-3xl; /* Ajuste cette taille selon tes besoins */
+}
+
+h2 {
+  @apply text-2xl; /* Ajuste cette taille selon tes besoins */
+}
+
+a {
+  @apply text-sm;
+}
+
+.ant-table .ant-table-tbody td a {
+  color: black !important; /* Change la couleur des liens en noir */
+}
+
+.ant-table .ant-table-tbody td {
+  padding: 10px 8px !important;
+}
