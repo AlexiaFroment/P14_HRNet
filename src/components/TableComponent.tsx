@@ -1,12 +1,14 @@
 import React, { useState } from "react"
 import { Table, Select, Pagination } from "antd"
-import { DataType } from "@/interface/interfaces"
+import { EmployeeFormValues } from "@/_interfaces/employee"
 import { columns } from "@/data/columnsTable"
 import { SearchInput } from "./SearchInput"
 
 const { Option } = Select
 
-export const TableComponent: React.FC<{ data: DataType[] }> = ({ data }) => {
+export const TableComponent: React.FC<{ data: EmployeeFormValues[] }> = ({
+  data,
+}) => {
   const [pageSize, setPageSize] = useState(10)
   const [currentPage, setCurrentPage] = useState(1)
   const [searchTerm, setSearchTerm] = useState("")
@@ -55,7 +57,7 @@ export const TableComponent: React.FC<{ data: DataType[] }> = ({ data }) => {
         </div>
       </div>
       {/* Pagination bottom/right */}
-      <Table<DataType>
+      <Table<EmployeeFormValues>
         columns={columns}
         dataSource={paginatedData}
         pagination={false}

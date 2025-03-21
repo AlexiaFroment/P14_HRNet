@@ -1,11 +1,11 @@
 import { DownOutlined } from "@ant-design/icons"
 import { MenuProps, Button, Dropdown, Space } from "antd"
 
-interface DropdownItem {
+type DropdownItem = {
   label: string
   key: string
 }
-interface DropdownComponenProps {
+type DropdownComponenProps = {
   value: string
   onChange: (value: string) => void
   items?: DropdownItem[]
@@ -28,7 +28,7 @@ export const DropdownComponent: React.FC<DropdownComponenProps> = ({
   }
 
   const selectedLabel =
-    items.find((item) => item.key === value)?.label || placeholder
+    items.find((item) => item.key === value[0])?.label || placeholder
 
   return (
     <Space wrap>

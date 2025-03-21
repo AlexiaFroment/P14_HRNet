@@ -1,12 +1,15 @@
 import type { TableProps } from "antd"
-import { DataType } from "@/interface/interfaces"
+import { EmployeeFormValues } from "@/_interfaces/employee"
+import dayjs from "dayjs"
 
-export const columns: TableProps<DataType>["columns"] = [
+export const columns: TableProps<EmployeeFormValues>["columns"] = [
   {
     title: "First Name",
     dataIndex: "firstname",
     key: "firstname",
-    render: (text) => <a>{text}</a>,
+    render: (text) => (
+      <a>{text.charAt(0).toUpperCase() + text.slice(1).toLowerCase()}</a>
+    ),
     sorter: (a, b) => a.firstname.localeCompare(b.firstname),
     sortDirections: ["ascend", "descend"],
   },
@@ -14,19 +17,19 @@ export const columns: TableProps<DataType>["columns"] = [
     title: "Last Name",
     dataIndex: "lastname",
     key: "lastname",
-    render: (text) => <a>{text}</a>,
+    render: (text) => <a>{text.toUpperCase()}</a>,
     sorter: (a, b) => a.lastname.localeCompare(b.lastname),
     sortDirections: ["ascend", "descend"],
   },
   {
-    title: "StartDate",
-    dataIndex: "startdate",
-    key: "startdate",
-    render: (text) => <a>{text}</a>,
+    title: "dateOfStart",
+    dataIndex: "dateOfStart",
+    key: "dateOfStart",
+    render: (text) => <a>{dayjs(text).format("DD/MM/YYYY")}</a>,
     sorter: (a, b) => {
-      const dateA = new Date(a.startdate.split("/").reverse().join("-")) // Convertir en format ISO (YYYY-MM-DD)
-      const dateB = new Date(b.startdate.split("/").reverse().join("-"))
-      return dateA.getTime() - dateB.getTime()
+      const dateA = dayjs(a.dateOfStart) // Convertir en format ISO (YYYY-MM-DD)
+      const dateB = dayjs(b.dateOfStart)
+      return dateA.isBefore(dateB) ? -1 : dateA.isAfter(dateB) ? 1 : 0
     },
     sortDirections: ["ascend", "descend"],
   },
@@ -34,19 +37,28 @@ export const columns: TableProps<DataType>["columns"] = [
     title: "Department",
     key: "department",
     dataIndex: "department",
-    render: (text) => <a>{text}</a>,
-    sorter: (a, b) => a.department.localeCompare(b.department),
+    render: (text) => {
+      if (Array.isArray(text)) {
+        return text.join(", ")
+      }
+      return <a>{text}</a>
+    },
+    sorter: (a, b) => {
+      const deptA = a.department.join(",")
+      const deptB = b.department.join(",")
+      return deptA.localeCompare(deptB)
+    },
     sortDirections: ["ascend", "descend"],
   },
   {
-    title: "Date of Birth",
-    key: "dateofbirth",
-    dataIndex: "dateofbirth",
-    render: (text) => <a>{text}</a>,
+    title: "Date Of Birth",
+    key: "dateOfBirth",
+    dataIndex: "dateOfBirth",
+    render: (text) => <a>{dayjs(text).format("DD/MM/YYYY")}</a>,
     sorter: (a, b) => {
-      const dateA = new Date(a.dateofbirth.split("/").reverse().join("-")) // Convertir en format ISO (YYYY-MM-DD)
-      const dateB = new Date(b.dateofbirth.split("/").reverse().join("-"))
-      return dateA.getTime() - dateB.getTime()
+      const dateA = dayjs(a.dateOfBirth) // Convertir en format ISO (YYYY-MM-DD)
+      const dateB = dayjs(b.dateOfBirth)
+      return dateA.isBefore(dateB) ? -1 : dateA.isAfter(dateB) ? 1 : 0
     },
     sortDirections: ["ascend", "descend"],
   },
@@ -54,7 +66,7 @@ export const columns: TableProps<DataType>["columns"] = [
     title: "Street",
     key: "street",
     dataIndex: "street",
-    render: (text) => <a>{text}</a>,
+    render: (text) => <a>{text.toLowerCase()}</a>,
     sorter: (a, b) => a.street.localeCompare(b.street),
     sortDirections: ["ascend", "descend"],
   },
@@ -70,8 +82,18 @@ export const columns: TableProps<DataType>["columns"] = [
     title: "State",
     key: "state",
     dataIndex: "state",
-    render: (text) => <a>{text}</a>,
-    sorter: (a, b) => a.state.localeCompare(b.state),
+    render: (text) => {
+      if (Array.isArray(text)) {
+        return text.join(", ")
+      }
+      return <a>{text}</a>
+    },
+
+    sorter: (a, b) => {
+      const StateA = a.state.join(",")
+      const StateB = b.state.join(",")
+      return StateA.localeCompare(StateB)
+    },
     sortDirections: ["ascend", "descend"],
   },
   {

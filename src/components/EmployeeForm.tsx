@@ -1,51 +1,54 @@
+import { useEmployeeStore } from "@/_store/useEmployeeStore"
 import { Formik, Form, Field, FieldProps, FormikHelpers } from "formik"
 import * as Yup from "yup"
+
 import { Input } from "antd"
 import { Dayjs } from "dayjs"
 import { DatePickerComponent } from "@/components/DatePickerComponent"
 import { ButtonComponent } from "@/components/ButtonComponent"
 import { DropdownComponent } from "@/components/DropdownComponent"
+import { EmployeeFormValues } from "@/_interfaces/employee"
 import state from "@/data/states.json"
 
-interface EmployeeFormValues {
-  firstname: string
-  lastname: string
-  dateOfBirth: Dayjs | null
-  dateOfStart: Dayjs | null
-  street: string
-  city: string
-  state: string[]
-  zipcode: string
-  department: string[]
-}
+const validationSchema = Yup.object({
+  firstname: Yup.string().required("First Name is required"),
+  lastname: Yup.string().required("Last Name is required"),
+  dateOfBirth: Yup.mixed().nullable().required("Date of birth is required"),
+  dateOfStart: Yup.mixed()
+    .nullable()
+    .required("Date of your entry is required"),
+  street: Yup.string().required("Your street is required"),
+  city: Yup.string().required("Your city is required"),
+  state: Yup.array()
+    .of(Yup.string())
+    .min(1, "At least one state must be selected")
+    .required("Your state is required"),
+  zipcode: Yup.string()
+    .matches(/^\d{5}$/, "Zipcode must be exactly 5 digits")
+    .required("Your zipcode is required"),
+  department: Yup.array()
+    .of(Yup.string())
+    .min(1, "At least one deparment must be selected")
+    .required("Your department is required"),
+})
 
 export const EmployeeForm = () => {
-  const validationSchema = Yup.object({
-    firstname: Yup.string().required("First Name is required"),
-    lastname: Yup.string().required("Last Name is required"),
-    dateOfBirth: Yup.date().nullable().required("Date of birth is required"),
-    dateOfStart: Yup.date()
-      .nullable()
-      .required("Date of your entry is required"),
-    street: Yup.string().required("Your street is required"),
-    city: Yup.string().required("Your city is required"),
-    state: Yup.string().required("Your state is required"),
-    zipcode: Yup.string()
-      .matches(/^\d{5}$/, "Zipcode must be exactly 5 digits")
-      .required("Your zipcode is required"),
-    department: Yup.string().required("Your department is required"),
-  })
+  const { addEmployee } = useEmployeeStore()
+
   const handleSubmit = (
     values: EmployeeFormValues,
-    { setSubmitting }: FormikHelpers<EmployeeFormValues>
+    { setSubmitting, resetForm }: FormikHelpers<EmployeeFormValues>
   ) => {
-    console.log(values)
+    console.log("submit form :", values)
+    addEmployee(values)
+    resetForm()
     setSubmitting(false)
   }
 
   return (
     <Formik
       initialValues={{
+        key: "",
         firstname: "",
         lastname: "",
         dateOfBirth: null as Dayjs | null,
@@ -57,7 +60,9 @@ export const EmployeeForm = () => {
         department: [] as string[],
       }}
       validationSchema={validationSchema}
-      onSubmit={handleSubmit}>
+      onSubmit={handleSubmit}
+      validateOnChange={true}
+      validateOnBlur={true}>
       {({ setFieldValue, errors, touched }) => (
         <Form>
           {/* First Name */}
@@ -156,10 +161,12 @@ export const EmployeeForm = () => {
                 {({ field }: FieldProps) => (
                   <DropdownComponent
                     value={field.value}
-                    onChange={(value) => setFieldValue("state", value)}
-                    items={state.map((state, index) => ({
+                    onChange={(value) => {
+                      setFieldValue("state", [value])
+                    }}
+                    items={state.map((state) => ({
                       label: state,
-                      key: index.toString(),
+                      key: state,
                     }))}
                     placeholder={state[0]}
                   />
@@ -201,7 +208,9 @@ export const EmployeeForm = () => {
               {({ field }: FieldProps) => (
                 <DropdownComponent
                   value={field.value}
-                  onChange={(value) => setFieldValue("department", value)}
+                  onChange={(value) => {
+                    setFieldValue("department", [value])
+                  }}
                   items={[
                     { label: "HR", key: "HR" },
                     { label: "Engineering", key: "Engineering" },
@@ -217,7 +226,7 @@ export const EmployeeForm = () => {
           </div>
 
           <div className='flex justify-center py-4'>
-            <ButtonComponent text='Save' />
+            <ButtonComponent text='Save' htmlType='submit' />
           </div>
         </Form>
       )}

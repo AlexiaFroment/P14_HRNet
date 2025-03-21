@@ -1,9 +1,11 @@
+import { useEmployeeStore } from "@/_store/useEmployeeStore"
 import { Title } from "@/components/Title"
 import { NavLink } from "@/components/NavLink"
 import { TableComponent } from "@/components/TableComponent"
-import employees from "@/data/employees.json"
 
 const CurrentEmployees: React.FC = () => {
+  const { employees } = useEmployeeStore()
+
   return (
     <>
       <Title
