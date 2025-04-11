@@ -1,7 +1,6 @@
 import { EmployeeFormValues } from "../_interfaces/employee"
 import { create } from "zustand"
 import dayjs from "dayjs"
-import { v4 as uuid } from "uuid"
 import employeesData from "@/data/employees.json"
 
 type EmployeeStore = {
@@ -16,9 +15,8 @@ export const useEmployeeStore = create<EmployeeStore>()((set) => ({
     dateOfBirth: dayjs(employee.dateOfBirth, "DD/MM/YYYY"),
   })),
   addEmployee: (employee: EmployeeFormValues) => {
-    const newEmployee = { ...employee, key: uuid() }
     set((state) => ({
-      employees: [...state.employees, newEmployee],
+      employees: [...state.employees, employee],
     }))
     console.log("addEmployee", employee)
   },
