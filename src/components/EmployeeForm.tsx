@@ -4,7 +4,6 @@ import { v4 as uuid } from "uuid"
 import { useState } from "react"
 import * as Yup from "yup"
 import Modal from "@aloasdev/react-modal"
-import "@aloasdev/react-modal/dist/index.css"
 
 import { Input } from "antd"
 import { Dayjs } from "dayjs"

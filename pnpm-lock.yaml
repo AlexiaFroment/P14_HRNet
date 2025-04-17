@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@aloasdev/react-modal':
-        specifier: ^2.0.0
-        version: 2.0.0
+        specifier: ^2.0.3
+        version: 2.0.3
       '@ant-design/icons':
         specifier: ^5.6.1
         version: 5.6.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -90,8 +90,8 @@ importers:
 
 packages:
 
-  '@aloasdev/react-modal@2.0.0':
-    resolution: {integrity: sha512-i8wuKfh0xCD64J4Te3zGnKIjQVH5SWHrxOek7S2+LyO5s+k71DatS2+8qY5MoERUsMUMov9Zz9JH0qFADZ24Kw==}
+  '@aloasdev/react-modal@2.0.3':
+    resolution: {integrity: sha512-rO7CfTLpKmZ8w39M5Y/ph9/xYjzGSsmMxtcqn3d6Nl41pDuF6o78y/fbM7XVLGGeMKZRBHsqeNq4KIABGaddkQ==}
 
   '@ampproject/remapping@2.3.0':
     resolution: {integrity: sha512-30iZtAPgz+LTIYoeivqYo853f02jBYSd5uGnGpkFV0M3xOt9aN73erkgYAmZU43x4VfqcnLxW9Kpg3R5LC4YYw==}
@@ -1619,6 +1619,9 @@ packages:
     resolution: {integrity: sha512-6fPc+R4ihwqP6N/aIv2f1gMH8lOVtWQHoqC4yK6oSDVVocumAsfCqjkXnqiYMhmMwS/mEHLp7Vehlt3ql6lEig==}
     engines: {node: '>=8'}
 
+  style-inject@0.3.0:
+    resolution: {integrity: sha512-IezA2qp+vcdlhJaVm5SOdPPTUu0FCEqfNSli2vRuSIBbu5Nq5UvygTk/VzeCqfLz2Atj3dVII5QBKGZRZ0edzw==}
+
   stylis@4.3.6:
     resolution: {integrity: sha512-yQ3rwFWRfwNUY7H5vpU0wfdkNSnvnJinhF9830Swlaxl03zsOjCfmX0ugac+3LtK0lYSgwL/KXc8oYL3mG4YFQ==}
 
@@ -1780,10 +1783,11 @@ packages:
 
 snapshots:
 
-  '@aloasdev/react-modal@2.0.0':
+  '@aloasdev/react-modal@2.0.3':
     dependencies:
       react: 19.1.0
       react-dom: 19.1.0(react@19.1.0)
+      style-inject: 0.3.0
 
   '@ampproject/remapping@2.3.0':
     dependencies:
@@ -3403,6 +3407,8 @@ snapshots:
   string-convert@0.2.1: {}
 
   strip-json-comments@3.1.1: {}
+
+  style-inject@0.3.0: {}
 
   stylis@4.3.6: {}
 
