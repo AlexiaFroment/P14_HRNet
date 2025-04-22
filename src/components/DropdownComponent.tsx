@@ -1,5 +1,8 @@
 import { DownOutlined } from "@ant-design/icons"
-import { MenuProps, Button, Dropdown, Space } from "antd"
+import Button from "antd/es/button"
+import Dropdown from "antd/es/dropdown"
+import Space from "antd/es/space"
+import { MenuProps } from "antd"
 
 type DropdownItem = {
   label: string

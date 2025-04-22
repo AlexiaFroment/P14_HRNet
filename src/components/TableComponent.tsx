@@ -1,8 +1,10 @@
 import React, { useState } from "react"
-import { Table, Select, Pagination } from "antd"
+import Table from "antd/es/table"
+import Select from "antd/es/select"
+import Pagination from "antd/es/pagination"
 import { EmployeeFormValues } from "@/_interfaces/employee"
 import { columns } from "@/data/columnsTable"
-import { SearchInput } from "./SearchInput"
+import { SearchInput } from "@/components/SearchInput"
 
 const { Option } = Select
 

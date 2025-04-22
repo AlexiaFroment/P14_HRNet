@@ -5,7 +5,7 @@ import { useState } from "react"
 import * as Yup from "yup"
 import Modal from "@aloasdev/react-modal"
 
-import { Input } from "antd"
+import Input from "antd/es/input"
 import { Dayjs } from "dayjs"
 import { DatePickerComponent } from "@/components/DatePickerComponent"
 import { ButtonComponent } from "@/components/ButtonComponent"

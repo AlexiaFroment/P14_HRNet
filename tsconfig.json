@@ -28,7 +28,7 @@
     "alwaysStrict": true,
     "importHelpers": true
   },
-  "include": ["src"],
+  "include": ["src", "findUnusedComponent.ts"],
   "references": [
     {
       "path": "./tsconfig.node.json"

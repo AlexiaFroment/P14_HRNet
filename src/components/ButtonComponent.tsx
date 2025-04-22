@@ -1,4 +1,5 @@
-import { Button, Flex } from "antd"
+import Button from "antd/es/button"
+import { Flex } from "antd"
 
 type ButtonComponentProps = {
   text: string

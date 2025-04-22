@@ -1,4 +1,5 @@
-import { Input, Space } from "antd"
+import Input from "antd/es/input"
+import Space from "antd/es/space"
 
 type SearchInputProps = {
   onSearch: (value: string) => void

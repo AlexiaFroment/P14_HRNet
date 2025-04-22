@@ -81,9 +81,6 @@ importers:
       rollup-plugin-visualizer:
         specifier: ^5.14.0
         version: 5.14.0(rollup@4.34.9)
-      typescript:
-        specifier: ~5.7.2
-        version: 5.7.3
       typescript-eslint:
         specifier: ^8.24.1
         version: 8.26.0(eslint@9.21.0(jiti@2.4.2))(typescript@5.7.3)
