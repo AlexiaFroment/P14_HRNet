@@ -1,54 +1,44 @@
-# React + TypeScript + Vite
+# HRNet - Employee Management Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Une application de gestion des employés développée en React avec TypeScript.
 
-Currently, two official plugins are available:
+## 🚀 Installation
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Prérequis
 
-## Expanding the ESLint configuration
+- Node.js
+- npm, pnpm ou yarn
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Étapes d'installation
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+1. **Cloner le projet**
+   git clone https://github.com/AlexiaFroment/P14_HRNet.git
+   cd P14_HRNet
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+2. **Installer les dépendances**
+   npm install
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+3. **Lancement du projet**
+   Mode Développement
+   npm run dev
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+Serveur de développement avec hot-reload
+Accessible sur http://localhost:5173
+Idéal pour le développement
+
+Mode Production (Recommandé pour les tests de performance)
+
+# Construire le projet
+
+npm run build
+
+# Lancer en mode preview
+
+npm run preview
+
+Version optimisée et plus rapide
+Simule l'environnement de production
+Accessible sur http://localhost:4173
+
+🎯 Performance
+Pour une expérience optimale, utilisez le mode production (npm run build puis npm run preview).
