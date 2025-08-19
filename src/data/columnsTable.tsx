@@ -1,4 +1,4 @@
-import type { TableProps } from "antd"
+import type { TableProps } from "antd/es/table"
 import { EmployeeFormValues } from "@/_interfaces/employee"
 import dayjs from "dayjs"
 

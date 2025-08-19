@@ -1,6 +1,6 @@
 import { LoadingOutlined } from "@ant-design/icons"
-import { Flex } from "antd"
 import Spin from "antd/es/spin"
+import Flex from "antd/es/flex"
 
 export const Loader: React.FC = () => {
   return (

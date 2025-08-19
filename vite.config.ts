@@ -9,7 +9,23 @@ import { fileURLToPath } from "url"
 const __dirname = dirname(fileURLToPath(import.meta.url))
 
 export default defineConfig({
-  plugins: [tailwindcss(), react()],
+  plugins: [
+    tailwindcss(),
+    react({
+      babel: {
+        plugins: [
+          [
+            "babel-plugin-import",
+            {
+              libraryName: "antd",
+              libraryDirectory: "es",
+              style: false,
+            },
+          ],
+        ],
+      },
+    }),
+  ],
   resolve: {
     alias: {
       "@": resolve(__dirname, "src"),
@@ -25,21 +41,6 @@ export default defineConfig({
           brotliSize: true,
         }),
       ],
-      output: {
-        manualChunks: {
-          // React ecosystem (change jamais)
-          react: ["react", "react-dom", "react-router-dom"],
-
-          // Ant Design (très gros, change rarement)
-          antd: ["antd", "@ant-design/icons"],
-
-          // Forms & validation (moyennes, changent peu)
-          forms: ["formik", "yup"],
-
-          // Utils (petites mais stables)
-          utils: ["dayjs", "uuid", "zustand"],
-        },
-      },
     },
   },
 })
