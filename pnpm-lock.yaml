@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@aloasdev/react-modal':
-        specifier: ^2.0.3
-        version: 2.0.4
+        specifier: ^2.0.5
+        version: 2.0.5
       '@ant-design/icons':
         specifier: ^5.6.1
         version: 5.6.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -93,8 +93,8 @@ importers:
 
 packages:
 
-  '@aloasdev/react-modal@2.0.4':
-    resolution: {integrity: sha512-KJNIMBKMx85b3Dc41T4XuqOHrjO5WHIQx2O1+FPbfIKO5wEKIdnk1sJDn9nfz+C9TNruLD5KzMsaN6WkORwPUA==}
+  '@aloasdev/react-modal@2.0.5':
+    resolution: {integrity: sha512-85KWNMgZWqjfzIqmdyWQvsuysKgk7fCn55l3mK5rwH0XpYQcrYXLxoS4awFLobhOvEogZxktYWCKq/k5ugM4ew==}
 
   '@ampproject/remapping@2.3.0':
     resolution: {integrity: sha512-30iZtAPgz+LTIYoeivqYo853f02jBYSd5uGnGpkFV0M3xOt9aN73erkgYAmZU43x4VfqcnLxW9Kpg3R5LC4YYw==}
@@ -1949,7 +1949,7 @@ packages:
 
 snapshots:
 
-  '@aloasdev/react-modal@2.0.4':
+  '@aloasdev/react-modal@2.0.5':
     dependencies:
       react: 19.1.1
       react-dom: 19.1.1(react@19.1.1)

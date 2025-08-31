@@ -242,7 +242,11 @@ export const EmployeeForm = () => {
           </Form>
         )}
       </Formik>
-      <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
+      {/* You can change the background color of modal in using the props overlayColor as like this overlayColor="rgba(0, 0, 255, 0.5)"  */}
+      <Modal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        overlayColor='rgba(0, 0, 255, 0.5)'>
         <p>{`${currentEmployee.firstname} created with success 🎉`}</p>
       </Modal>
     </>
