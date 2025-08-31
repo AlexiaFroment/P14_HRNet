@@ -1,0 +1,1 @@
+import{j as n,aF as c}from"./index-C4QHL-s3.js";const x=({text:e,level:t=1,align:s="center",className:r=""})=>{const a=`h${t}`;return n.jsx(a,{className:`text-${s} ${r}`,children:e})},i=({to:e,label:t,className:s=""})=>n.jsx(c,{to:e,className:` block text-center  text-blue-500 hover:text-blue-700 ${s}`,children:t});export{i as N,x as T};
