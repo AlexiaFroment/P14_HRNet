@@ -9,6 +9,7 @@ import { fileURLToPath } from "url"
 const __dirname = dirname(fileURLToPath(import.meta.url))
 
 export default defineConfig({
+  base: "/P14_HRNet/",
   plugins: [
     tailwindcss(),
     react({
